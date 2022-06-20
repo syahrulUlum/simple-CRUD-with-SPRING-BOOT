@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<h1>Semua Event</h1>
+<a href="/event/tambah">tambah</a>
+<table border="1">
+	<thead>
+		<tr>
+			<th>No</th>
+			<th>Nama</th>
+			<th>Kategori</th>
+			<th>Lokasi</th>
+			<th>Deskripsi</th>
+			<th>Aksi</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr th:each="event, nomor : ${events}">
+		<td th:text="${nomor.count}">1</td>
+		<td th:text="${event.nama}"></td>
+		<td th:text="${event.kategori}"></td>
+		<td th:text="${event.lokasi}"></td>
+		<td th:text="${event.deskripsi}"></td>
+		<td>
+			<a th:href="'/event/ubah/' + ${event.id}">Edit</a>
+			<a th:href="'/event/hapus/' + ${event.id}">Hapus</a>
+		</td>
+	</tr>
+	</tbody>
+</table>
+</body>
+</html>
